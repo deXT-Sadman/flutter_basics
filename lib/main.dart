@@ -23,17 +23,13 @@ class HomeScreen extends StatelessWidget {
         title: Text('My First App'),
         backgroundColor: Colors.cyanAccent,
       ),
-      body: Center(
-        child: Container(
-          height: 200,
-          width: 150,
-          color: Colors.cyanAccent,
-          child: Center(
-            child: Text(
-              "This container is in the center of the screen",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
+      body: Text(
+        "Hello World!",
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.cyan,
+          fontStyle: FontStyle.italic,
         ),
       ),
     );
