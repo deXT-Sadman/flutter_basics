@@ -7,7 +7,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen(), debugShowCheckedModeBanner: false);
+    return MaterialApp(
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.cyan),
+    );
   }
 }
 
@@ -15,13 +19,21 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('My First App')),
+      appBar: AppBar(
+        title: Text('My First App'),
+        backgroundColor: Colors.cyanAccent,
+      ),
       body: Center(
         child: Container(
-          height: 100,
-          width: 100,
+          height: 200,
+          width: 150,
           color: Colors.cyanAccent,
-          child: Center(child: Text("Sadman")),
+          child: Center(
+            child: Text(
+              "This container is in the center of the screen",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ),
       ),
     );
