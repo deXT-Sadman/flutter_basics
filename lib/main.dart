@@ -15,7 +15,19 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+  void _showMessage(BuildContext context) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text("Clicked")));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +35,36 @@ class HomeScreen extends StatelessWidget {
         title: Text('My First App'),
         backgroundColor: Colors.cyanAccent,
       ),
-      body: Text(
-        "Hello World!",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.cyan,
-          fontStyle: FontStyle.italic,
+      body: Center(
+        child: Text(
+          "Hello World!",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.cyan,
+            fontStyle: FontStyle.italic,
+          ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+          _showMessage(context);
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Category',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+        ],
       ),
     );
   }
