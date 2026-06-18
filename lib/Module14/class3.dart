@@ -28,6 +28,41 @@ class _Module14Class3State extends State<Module14Class3> {
     );
   }
 
+  void showAlertDialogWithIcon() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text("Installation Block"),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.warning, color: Colors.red, size: 40),
+                SizedBox(width: 5),
+                Text("Warning"),
+              ],
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text("Cancel"),
+          ),
+          ElevatedButton(onPressed: () {}, child: Text("Submit")),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +77,13 @@ class _Module14Class3State extends State<Module14Class3> {
                 showAlertDialog();
               },
               child: Text("Alert Dialog"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                showAlertDialogWithIcon();
+              },
+              child: Text("Alert Dialog with Icon"),
             ),
           ],
         ),
