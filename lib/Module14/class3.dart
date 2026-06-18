@@ -63,6 +63,20 @@ class _Module14Class3State extends State<Module14Class3> {
     );
   }
 
+  void showSimpleDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: Text('Single dialog'),
+        children: [
+          SimpleDialogOption(child: Text('Option-1')),
+
+          SimpleDialogOption(child: TextField()),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,6 +98,13 @@ class _Module14Class3State extends State<Module14Class3> {
                 showAlertDialogWithIcon();
               },
               child: Text("Alert Dialog with Icon"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                showSimpleDialog();
+              },
+              child: Text("Simple Dialog"),
             ),
           ],
         ),
