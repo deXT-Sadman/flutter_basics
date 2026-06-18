@@ -77,6 +77,25 @@ class _Module14Class3State extends State<Module14Class3> {
     );
   }
 
+  void showBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      // ignore: avoid_unnecessary_containers
+      builder: (context) => Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Chose Option:", style: TextStyle(fontSize: 18)),
+
+            ListTile(title: Text("Option-1")),
+            ListTile(title: Text("Option-1")),
+            ListTile(title: Text("Option-1")),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,6 +124,13 @@ class _Module14Class3State extends State<Module14Class3> {
                 showSimpleDialog();
               },
               child: Text("Simple Dialog"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                showBottomSheet();
+              },
+              child: Text("Bottom Sheet"),
             ),
           ],
         ),
